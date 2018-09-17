@@ -115,7 +115,7 @@ export default class Filter extends Component {
                 >
                     {this._getFields()}
                     <div className={"btnContainer filter-action-div"+(this.props.filterBtnInline?' inline':'')}>
-                        <Button type="primary" htmlType="submit">搜索</Button>
+                        <Button type="primary" className="search" htmlType="submit">搜索</Button>
                         <Button className="reset" onClick={this._handleReset}>重置</Button>
                         <Button className={this.props.hideBackBtn?'hide back':'back'} onClick={this._handleBack}>返回</Button>
                         {!this.props.collapseNum?'':<a style={{ marginLeft: 8, fontSize: 16 }} onClick={this.toggle}>

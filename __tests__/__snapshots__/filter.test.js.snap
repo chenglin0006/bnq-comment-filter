@@ -1,181 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`filter simulates click events 1`] = `
-<div
-  className="test"
-  onClick={[Function]}
->
-  <div>
-    <form
-      className="ant-form ant-form-inline filter-form"
-      onSubmit={[Function]}
-    >
-      <div>
-        <div
-          className="ant-row ant-form-item"
-          style={
-            Object {
-              "display": "block",
-            }
-          }
-        >
-          <div
-            className="ant-form-item-label"
-          >
-            <label
-              className=""
-              htmlFor="activityCode"
-              onClick={[Function]}
-              title="活动编码"
-            >
-              活动编码
-            </label>
-          </div>
-          <div
-            className="ant-form-item-control-wrapper"
-          >
-            <div
-              className="ant-form-item-control"
-            >
-              <span
-                className="ant-form-item-children"
-              >
-                <input
-                  className="ant-input"
-                  data-__field={
-                    Object {
-                      "name": "activityCode",
-                    }
-                  }
-                  data-__meta={
-                    Object {
-                      "initialValue": undefined,
-                      "name": "activityCode",
-                      "originalProps": Object {
-                        "disabled": false,
-                        "placeholder": undefined,
-                        "prefixCls": "ant-input",
-                        "type": "text",
-                      },
-                      "ref": null,
-                      "trigger": "onChange",
-                      "validate": Array [],
-                      "valuePropName": "value",
-                    }
-                  }
-                  disabled={false}
-                  id="activityCode"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="text"
-                  value=""
-                />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          className="ant-row ant-form-item"
-          style={
-            Object {
-              "display": "block",
-            }
-          }
-        >
-          <div
-            className="ant-form-item-label"
-          >
-            <label
-              className=""
-              htmlFor="searchParam"
-              onClick={[Function]}
-              title="查询条件"
-            >
-              查询条件
-            </label>
-          </div>
-          <div
-            className="ant-form-item-control-wrapper"
-          >
-            <div
-              className="ant-form-item-control"
-            >
-              <span
-                className="ant-form-item-children"
-              >
-                <input
-                  className="ant-input"
-                  data-__field={
-                    Object {
-                      "name": "searchParam",
-                    }
-                  }
-                  data-__meta={
-                    Object {
-                      "initialValue": undefined,
-                      "name": "searchParam",
-                      "originalProps": Object {
-                        "disabled": false,
-                        "placeholder": undefined,
-                        "prefixCls": "ant-input",
-                        "type": "text",
-                      },
-                      "ref": null,
-                      "trigger": "onChange",
-                      "validate": Array [],
-                      "valuePropName": "value",
-                    }
-                  }
-                  disabled={false}
-                  id="searchParam"
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="text"
-                  value=""
-                />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+<div>
+  <form
+    className="ant-form ant-form-inline filter-form"
+    onSubmit={[Function]}
+  >
+    <div>
       <div
-        className="btnContainer filter-action-div"
+        className="ant-row ant-form-item"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
       >
-        <button
-          className="ant-btn ant-btn-primary"
-          onClick={[Function]}
-          type="submit"
+        <div
+          className="ant-form-item-label"
         >
-          <span>
-            搜 索
-          </span>
-        </button>
-        <button
-          className="ant-btn reset"
-          onClick={[Function]}
-          type="button"
+          <label
+            className=""
+            htmlFor="activityCode"
+            onClick={[Function]}
+            title="活动编码"
+          >
+            活动编码
+          </label>
+        </div>
+        <div
+          className="ant-form-item-control-wrapper"
         >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
-          className="ant-btn back"
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            返 回
-          </span>
-        </button>
-        
+          <div
+            className="ant-form-item-control"
+          >
+            <span
+              className="ant-form-item-children"
+            >
+              <input
+                className="ant-input"
+                data-__field={
+                  Object {
+                    "name": "activityCode",
+                  }
+                }
+                data-__meta={
+                  Object {
+                    "initialValue": undefined,
+                    "name": "activityCode",
+                    "originalProps": Object {
+                      "disabled": false,
+                      "placeholder": undefined,
+                      "prefixCls": "ant-input",
+                      "type": "text",
+                    },
+                    "ref": null,
+                    "trigger": "onChange",
+                    "validate": Array [],
+                    "valuePropName": "value",
+                  }
+                }
+                disabled={false}
+                id="activityCode"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                type="text"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
       </div>
+    </div>
+    <div>
       <div
-        className="ant-divider ant-divider-horizontal"
-      />
-    </form>
-  </div>
+        className="ant-row ant-form-item"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <div
+          className="ant-form-item-label"
+        >
+          <label
+            className=""
+            htmlFor="searchParam"
+            onClick={[Function]}
+            title="查询条件"
+          >
+            查询条件
+          </label>
+        </div>
+        <div
+          className="ant-form-item-control-wrapper"
+        >
+          <div
+            className="ant-form-item-control"
+          >
+            <span
+              className="ant-form-item-children"
+            >
+              <input
+                className="ant-input"
+                data-__field={
+                  Object {
+                    "name": "searchParam",
+                  }
+                }
+                data-__meta={
+                  Object {
+                    "initialValue": undefined,
+                    "name": "searchParam",
+                    "originalProps": Object {
+                      "disabled": false,
+                      "placeholder": undefined,
+                      "prefixCls": "ant-input",
+                      "type": "text",
+                    },
+                    "ref": null,
+                    "trigger": "onChange",
+                    "validate": Array [],
+                    "valuePropName": "value",
+                  }
+                }
+                disabled={false}
+                id="searchParam"
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                type="text"
+                value=""
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="btnContainer filter-action-div"
+    >
+      <button
+        className="ant-btn search ant-btn-primary"
+        onClick={[Function]}
+        type="submit"
+      >
+        <span>
+          搜 索
+        </span>
+      </button>
+      <button
+        className="ant-btn reset"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        className="ant-btn back"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          返 回
+        </span>
+      </button>
+      
+    </div>
+    <div
+      className="ant-divider ant-divider-horizontal"
+    />
+  </form>
 </div>
 `;

@@ -32,18 +32,16 @@ const props = {
 describe('filter', () => {
     it('simulates click events', () => {
         const component = renderer.create(
-            <div className={'test'} onClick={()=>{console.log('test')}}>
-                <WrappedAdvancedFilter {...props}/>
-            </div>
+            <WrappedAdvancedFilter {...props}/>
         );
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
 
-        const wrapper = shallow(
-            <div className={'test'} onClick={()=>{console.log('test')}}>
-                <WrappedAdvancedFilter {...props}/>
-            </div>);
-        // wrapper.find('div.test').simulate('click');
+        const wrapper = mount( <WrappedAdvancedFilter {...props}/>);
         wrapper.find('button.reset').simulate('click');
+
+        wrapper.find('button.search').simulate('submit');
+
+        wrapper.find('button.back').simulate('click');
     });
 });
