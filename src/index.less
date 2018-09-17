@@ -1,3 +1,63 @@
-div{
-  color:green;
+.filter-form {
+  padding-bottom: 12px !important;
+
+  @import "~antd/dist/antd.less";
+  div {
+    display: inline-block;
+  }
+
+  .btnContainer {
+    padding-right: 30px;
+    display: block;
+    vertical-align: top;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    .reset {
+      margin-left: 10px;
+    }
+    .back {
+      margin-left: 10px;
+    }
+    &.inline{
+      display: inline-block;
+      margin-left: 20px;
+    }
+
+  }
+
+  .ant-divider-horizontal{
+    margin:10px 0;
+  }
+
+  .filterField {
+    label {
+      margin-top: 10px;
+      margin-right: 5px;
+      display: inline-block;
+    }
+
+    .fiterFormItem {
+      display: inline-block;
+      width: 70%;
+    }
+  }
+
+  .ant-form-item {
+    .ant-form-item-label {
+      width: 80px;
+    }
+    .ant-form-item-control-wrapper {
+      .ant-select-selection, input {
+        width: 150px;
+      }
+    }
+  }
 }
+
+.hide{
+  display: none !important;
+}
+
+
+
