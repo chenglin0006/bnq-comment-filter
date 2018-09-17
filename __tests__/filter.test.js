@@ -30,7 +30,9 @@ test('filter', () => {
             console.log('back','=============')
         }),
     }
-    const filterWrapperTest = shallow(<WrappedAdvancedFilter {...props} />);
-    filterWrapperTest.find('div').simulate('click');
-
+    const filterWrapperTest = shallow(<div className={'test'} onClick={()=>{
+        console.log('test');
+    }}><WrappedAdvancedFilter {...props} ></WrappedAdvancedFilter></div>);
+    filterWrapperTest.find('div.test').simulate('click');
+    filterWrapperTest.find('button.reset').simulate('click');
 });
