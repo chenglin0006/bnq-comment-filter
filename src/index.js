@@ -36,7 +36,7 @@ export default class Filter extends Component {
     }
 
     _handleReset() {
-        this.props.form.resetFields();
+        // this.props.form.resetFields();
         this.props.handleReset();
     }
 
@@ -70,7 +70,7 @@ export default class Filter extends Component {
         const {filterData} = this.props;
         let count = this.state.expand ? filterData.length : this.props.collapseNum;
         if(!this.props.collapseNum){
-            count=filterData.length;
+            count=filterData&&filterData.length || 0;
         }
         const {getFieldDecorator} = this.props.form;
         const that = this;
@@ -107,22 +107,24 @@ export default class Filter extends Component {
 
     render() {
         return (
-            <Form
-                layout="inline"
-                className="filter-form"
-                onSubmit={this._handleSearch}
-            >
-                {this._getFields()}
-                <div className={"btnContainer filter-action-div"+(this.props.filterBtnInline?' inline':'')}>
-                    <Button type="primary" htmlType="submit">搜索</Button>
-                    <Button className="reset" onClick={this._handleReset}>重置</Button>
-                    <Button className={this.props.hideBackBtn?'hide back':'back'} onClick={this._handleBack}>返回</Button>
-                    {!this.props.collapseNum?'':<a style={{ marginLeft: 8, fontSize: 16 }} onClick={this.toggle}>
-                        {this.state.expand ? '收起' : '展开'} <Icon type={this.state.expand ? 'up' : 'down'}/>
-                    </a>}
-                </div>
-                <Divider></Divider>
-            </Form>
+            <div>
+                <Form
+                    layout="inline"
+                    className="filter-form"
+                    onSubmit={this._handleSearch}
+                >
+                    {this._getFields()}
+                    <div className={"btnContainer filter-action-div"+(this.props.filterBtnInline?' inline':'')}>
+                        <Button type="primary" htmlType="submit">搜索</Button>
+                        <Button className="reset" onClick={this._handleReset}>重置</Button>
+                        <Button className={this.props.hideBackBtn?'hide back':'back'} onClick={this._handleBack}>返回</Button>
+                        {!this.props.collapseNum?'':<a style={{ marginLeft: 8, fontSize: 16 }} onClick={this.toggle}>
+                            {this.state.expand ? '收起' : '展开'} <Icon type={this.state.expand ? 'up' : 'down'}/>
+                        </a>}
+                    </div>
+                    <Divider></Divider>
+                </Form>
+            </div>
         );
     }
 }

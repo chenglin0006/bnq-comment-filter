@@ -3,18 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 import Filter from '../../src/index'
 import {Form} from "antd/lib/index";
-const WrappedAdvancedFilter = Form.create()(Filter);
 
+const WrappedAdvancedFilter = Form.create()(Filter);
 class App extends Component {
     constructor(props) {
         super(props);
         this._handleReset=this._handleReset.bind(this);
         this._handleSearch=this._handleSearch.bind(this);
+        this._handleBack=this._handleBack.bind(this);
     }
     _handleSearch(){
 
     }
     _handleReset(){
+
+    }
+    _handleBack(){
 
     }
   render() {
@@ -40,6 +44,7 @@ class App extends Component {
                   filterData={filterData}
                   handleSearch={this._handleSearch}
                   handleReset={this._handleReset}
+                  handleBack={this._handleBack}
                   filterBtnInline={true}
               />
           </div>
