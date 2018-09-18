@@ -1,4 +1,4 @@
-import {shallow,mount} from 'enzyme';
+import {shallow,mount,render} from 'enzyme';
 import React from 'react';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -38,10 +38,21 @@ describe('filter', () => {
         expect(tree).toMatchSnapshot();
 
         const wrapper = mount( <WrappedAdvancedFilter {...props}/>);
+
+        //test props
+        expect(wrapper.prop('filterData')).toHaveLength(2);
+
+        //test reset btn
         wrapper.find('button.reset').simulate('click');
+        expect(props.handleReset).toBeCalled();
+        expect(wrapper.find('#activityCode').at(0).text()).toBe("");
 
+        //test search btn
         wrapper.find('button.search').simulate('submit');
+        expect(props.handleSearch).toBeCalled()
 
+        //test back btn
         wrapper.find('button.back').simulate('click');
+        expect(props.handleBack).toBeCalled()
     });
 });
