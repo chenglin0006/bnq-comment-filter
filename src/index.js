@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Form, Row, Col, Input, Button, Icon, Select, DatePicker,Divider} from 'antd';
+import {Form, Row, Col, Input, Button, Icon, Select, DatePicker,Divider,TreeSelect} from 'antd';
 // import CascaderShop from '../cascaderShop/index';
 // import Cascader from '../cascader/index'
 import './index.less';
@@ -60,6 +60,17 @@ export default class Filter extends Component {
                     dateFormat = 'YYYY-MM-DD HH:mm:ss';
                 }
                 return <RangePicker allowClear={false} showTime={option.showTime?true:false} format={dateFormat}/>;
+                break;
+            case 'treeSelect':
+                const {showSearch=false,allowClear=true,treeData,placeholder,multiple=false}=option
+                let props = {
+                    showSearch:showSearch,
+                    allowClear:allowClear,
+                    treeData:treeData,
+                    placeholder:placeholder,
+                    multiple:multiple
+                }
+                return <TreeSelect {...props}></TreeSelect>
                 break;
             default:
                 return <Input placeholder={option.placeholder}/>;

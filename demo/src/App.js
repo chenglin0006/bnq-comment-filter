@@ -22,6 +22,24 @@ class App extends Component {
 
     }
   render() {
+      const treeData = [{
+          title: 'Node1',
+          value: '0-0',
+          key: '0-0',
+          children: [{
+              title: 'Child Node1',
+              value: '0-0-1',
+              key: '0-0-1',
+          }, {
+              title: 'Child Node2',
+              value: '0-0-2',
+              key: '0-0-2',
+          }],
+      }, {
+          title: 'Node2',
+          value: '0-1',
+          key: '0-1',
+      }];
       var filterData = [{
           id: 'activityCode',
           name: '活动编码',
@@ -29,6 +47,15 @@ class App extends Component {
   },{
           id: 'searchParam',
           name: '查询条件',
+      },{
+          id:'treeSelect',
+          type:'treeSelect',
+          treeData:treeData,
+          showSearch:false,
+          allowClear:true,
+          name:'树形选择器',
+          placeholder:'请选择',
+          multiple:true
       }]
     return (
       <div className="App">
