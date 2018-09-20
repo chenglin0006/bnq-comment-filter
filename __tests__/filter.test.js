@@ -39,6 +39,8 @@ describe('filter', () => {
 
         const wrapper = mount( <WrappedAdvancedFilter {...props}/>);
 
+        console.log(wrapper.debug());
+
         //test props
         expect(wrapper.prop('filterData')).toHaveLength(2);
 
