@@ -61,11 +61,29 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("prop-types");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77,17 +95,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _antd = __webpack_require__(3);
+var _antd = __webpack_require__(2);
 
-__webpack_require__(4);
+var _cascader = __webpack_require__(4);
+
+var _cascader2 = _interopRequireDefault(_cascader);
+
+__webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -97,7 +119,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import CascaderShop from '../cascaderShop/index';
-// import Cascader from '../cascader/index'
 
 
 var FormItem = _antd.Form.Item;
@@ -209,6 +230,8 @@ var Filter = function (_Component) {
     }, {
         key: '_getFields',
         value: function _getFields() {
+            var _this3 = this;
+
             var filterData = this.props.filterData;
 
             var count = this.state.expand ? filterData.length : this.props.collapseNum;
@@ -223,29 +246,28 @@ var Filter = function (_Component) {
                 //     return (
                 //         <CascaderShop key={i} form={that.props.form} isNotRequired={true}/>
                 //     )
-                // } else if (option.type === 'cascader') {
-                //     return (
-                //         <Cascader
-                //             key={i}
-                //             form={that.props.form}
-                //             data={option.linkage}
-                //             handleChange={this.props.handleChange}
-                //         />
-                //     )
-                // } else {
-                var decoratorRules = {
-                    initialValue: option.initialValue
-                };
-                return _react2.default.createElement(
-                    'div',
-                    { key: i },
-                    _react2.default.createElement(
-                        FormItem,
-                        { label: option.name, className: option.isHide ? 'hide' : '', style: { display: i < count ? 'block' : 'none' } },
-                        getFieldDecorator('' + option.id, decoratorRules)(that._getFormItem(option))
-                    )
-                );
-                // }
+                // } else
+                if (option.type === 'cascader') {
+                    return _react2.default.createElement(_cascader2.default, {
+                        key: i,
+                        form: that.props.form,
+                        data: option.linkage,
+                        handleChange: _this3.props.handleChange
+                    });
+                } else {
+                    var decoratorRules = {
+                        initialValue: option.initialValue
+                    };
+                    return _react2.default.createElement(
+                        'div',
+                        { key: i },
+                        _react2.default.createElement(
+                            FormItem,
+                            { label: option.name, className: option.isHide ? 'hide' : '', style: { display: i < count ? 'block' : 'none' } },
+                            getFieldDecorator('' + option.id, decoratorRules)(that._getFormItem(option))
+                        )
+                    );
+                }
             });
         }
     }, {
@@ -311,31 +333,136 @@ Filter.propTypes = {
 };
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("prop-types");
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("antd");
-
-/***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _antd = __webpack_require__(2);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *联动
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+
+var Option = _antd.Select.Option;
+var FormItem = _antd.Form.Item;
+
+var Cascader = function (_Component) {
+    _inherits(Cascader, _Component);
+
+    function Cascader(props) {
+        _classCallCheck(this, Cascader);
+
+        var _this = _possibleConstructorReturn(this, (Cascader.__proto__ || Object.getPrototypeOf(Cascader)).call(this, props));
+
+        _this._handleChange = _this._handleChange.bind(_this);
+        return _this;
+    }
+
+    _createClass(Cascader, [{
+        key: '_handleChange',
+        value: function _handleChange(option, value) {
+            var _this2 = this;
+
+            if (option.url && option.relativeFeilds && option.fetchFeilds) {
+                //重置联动中影响到的文本域，通过relativeFeilds来获取影响到的fileds
+                option.relativeFeilds.map(function (i) {
+                    var o = {};
+                    o[i] = '';
+                    _this2.props.form.setFieldsValue(o);
+                });
+
+                //通过fetchFeilds获取Fetch参数，在onSelect事件中，this.props.form获取到的当前事件值不是最新的值，因此需要通过value获取
+                var fieldsValue = this.props.form.getFieldsValue(option.fetchFeilds);
+                option.fetchFeilds.map(function (i) {
+                    if (i === option.id) {
+                        fieldsValue[i] = value;
+                    }
+                });
+
+                fieldsValue && this.props.handleChange && this.props.handleChange(fieldsValue, option);
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            //由于在父组件components/new中传入了form,实现父子公用一个form
+            var getFieldDecorator = this.props.form.getFieldDecorator;
+
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.props.data && this.props.data.map(function (option, i) {
+                    var decorator = {
+                        rules: [{
+                            required: option.isRequired, message: '不能为空！'
+                        }],
+                        initialValue: option.initialValue
+                    };
+                    return _react2.default.createElement(
+                        FormItem,
+                        { label: option.name, key: i },
+                        getFieldDecorator('' + option.id, decorator)(_react2.default.createElement(
+                            _antd.Select,
+                            { onSelect: function onSelect(value) {
+                                    return _this3._handleChange(option, value);
+                                } },
+                            option.data && option.data.map(function (item, key) {
+                                return _react2.default.createElement(
+                                    Option,
+                                    { key: key, value: item.id },
+                                    item.name || item.shopName
+                                );
+                            })
+                        ))
+                    );
+                })
+            );
+        }
+    }]);
+
+    return Cascader;
+}(_react.Component);
+
+Cascader.propTypes = {
+    form: _propTypes2.default.object
+};
+
+exports.default = Cascader;
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(5);
+var content = __webpack_require__(6);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -343,7 +470,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(8)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -360,10 +487,10 @@ if(false) {
 }
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(6)(false);
+exports = module.exports = __webpack_require__(7)(false);
 // imports
 
 
@@ -374,7 +501,7 @@ exports.push([module.i, "/* stylelint-disable at-rule-empty-line-before,at-rule-
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 /*
@@ -456,7 +583,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -512,7 +639,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(8);
+var	fixUrls = __webpack_require__(9);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -828,7 +955,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 

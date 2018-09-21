@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Form, Row, Col, Input, Button, Icon, Select, DatePicker,Divider,TreeSelect} from 'antd';
 // import CascaderShop from '../cascaderShop/index';
-// import Cascader from '../cascader/index'
+import Cascader from './components/cascader'
 import './index.less';
 
 const FormItem = Form.Item;
@@ -90,16 +90,17 @@ export default class Filter extends Component {
             //     return (
             //         <CascaderShop key={i} form={that.props.form} isNotRequired={true}/>
             //     )
-            // } else if (option.type === 'cascader') {
-            //     return (
-            //         <Cascader
-            //             key={i}
-            //             form={that.props.form}
-            //             data={option.linkage}
-            //             handleChange={this.props.handleChange}
-            //         />
-            //     )
-            // } else {
+            // } else
+            if (option.type === 'cascader') {
+                return (
+                    <Cascader
+                        key={i}
+                        form={that.props.form}
+                        data={option.linkage}
+                        handleChange={this.props.handleChange}
+                    />
+                )
+            } else {
                 let decoratorRules = {
                     initialValue: option.initialValue
                 }
@@ -112,7 +113,7 @@ export default class Filter extends Component {
                         </FormItem>
                     </div>
                 );
-            // }
+            }
         });
     }
 
