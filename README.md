@@ -52,8 +52,8 @@ const WrappedAdvancedFilter = Form.create()(Filter);
                             actionName: 'GET_CITY',
                             url: '/district/citys',
                             //isAddress: 'true', //决定域名来源
-                            relativeFeilds: ['cityId', 'shopId'],
-                            fetchFeilds: ['provinceId'],
+                            relativeFields: ['cityId', 'shopId'],
+                            fetchFields: ['provinceId'],
                             data:[{id:'1',name:'北京'},{id:'2',name:'上海'}]
                         },
                         {
@@ -63,8 +63,8 @@ const WrappedAdvancedFilter = Form.create()(Filter);
                             enumName: 'cityList',
                             actionName: 'GET_SHOP',
                             url: '/shop/queryByArea',
-                            relativeFeilds: ['shopId'],
-                            fetchFeilds: ['provinceId', 'cityId']
+                            relativeFields: ['shopId'],
+                            fetchFields: ['provinceId', 'cityId']
                         },
                         {
                             id: 'shopId',

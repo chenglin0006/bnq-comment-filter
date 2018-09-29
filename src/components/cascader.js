@@ -16,17 +16,17 @@ class Cascader extends Component {
     }
 
     _handleChange(option, value){
-        if(option.url && option.relativeFeilds && option.fetchFeilds) {
-            //重置联动中影响到的文本域，通过relativeFeilds来获取影响到的fileds
-            option.relativeFeilds.map((i) => {
+        if(option.url && option.relativeFields && option.fetchFields) {
+            //重置联动中影响到的文本域，通过relativeFields来获取影响到的fileds
+            option.relativeFields.map((i) => {
                 let o = {};
                 o[i] = '';
                 this.props.form.setFieldsValue(o);
             });
 
-            //通过fetchFeilds获取Fetch参数，在onSelect事件中，this.props.form获取到的当前事件值不是最新的值，因此需要通过value获取
-            let fieldsValue = this.props.form.getFieldsValue(option.fetchFeilds);
-            option.fetchFeilds.map((i) => {
+            //通过fetchFields获取Fetch参数，在onSelect事件中，this.props.form获取到的当前事件值不是最新的值，因此需要通过value获取
+            let fieldsValue = this.props.form.getFieldsValue(option.fetchFields);
+            option.fetchFields.map((i) => {
                 if(i === option.id) {
                     fieldsValue[i] = value;
                 }
