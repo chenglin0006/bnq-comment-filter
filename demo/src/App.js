@@ -36,8 +36,13 @@ var filterData = [{
     id: 'searchParam',
     name: '查询条件',
 },{
-    id: 'startEndTime',
-    name: '起止时间',
+    id: 'startEndTime-1',
+    name: '创建时间',
+    type:'rangePicker',
+    showTime:true
+},{
+    id: 'startEndTime-2',
+    name: '活动时间',
     type:'rangePicker',
     showTime:true
 },{

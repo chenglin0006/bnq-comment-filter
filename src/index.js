@@ -36,12 +36,15 @@ export default class Filter extends Component {
             for (let i in items) {
                 if ((items[i] && items[i] !== 'undefined') || items[i] === 0) {
                     //将起始时间区分开
-                    if (i === 'startEndTime') {
+                    if (i.indexOf('startEndTime')>-1) {
+                        let index = i.split('-')[1]||0;
                         let dateFormat = 'YYYY-MM-DD HH:mm:ss';
                         let startTime = moment(items[i][0]).format(dateFormat);
                         let endTime = moment(items[i][1]).format(dateFormat);
-                        params['startTime'] = startTime;
-                        params['endTime'] = endTime;
+                        let startTimeStr =index==0?'startTime': 'startTime'+index;
+                        let endTimeStr = index==0?'endTime':'endTime'+index;
+                        params[startTimeStr] = startTime;
+                        params[endTimeStr] = endTime;
                     } else {
                         params[i] = items[i];
                     }
