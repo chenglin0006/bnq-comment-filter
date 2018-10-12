@@ -31,32 +31,14 @@ export default class Filter extends Component {
 
     _handleSearch(e) {
         e.preventDefault();
-        this.props.form.validateFields((err, items) => {
-            let params = {}
-            for (let i in items) {
-                if ((items[i] && items[i] !== 'undefined') || items[i] === 0) {
-                    //将起始时间区分开
-                    if (i.indexOf('startEndTime')>-1) {
-                        let index = i.split('-')[1]||0;
-                        let dateFormat = 'YYYY-MM-DD HH:mm:ss';
-                        let startTime = moment(items[i][0]).format(dateFormat);
-                        let endTime = moment(items[i][1]).format(dateFormat);
-                        let startTimeStr =index==0?'startTime': 'startTime'+index;
-                        let endTimeStr = index==0?'endTime':'endTime'+index;
-                        params[startTimeStr] = startTime;
-                        params[endTimeStr] = endTime;
-                    } else {
-                        params[i] = items[i];
-                    }
-                }
-            };
-            this.props.handleSearch(params);
+        this.props.form.validateFields((err, values) => {
+            this.props.handleSearch(values);
         });
     }
 
     _handleReset() {
         this.props.form.resetFields();
-        this.props.handleSearch({});
+        this.props._handleReset();
     }
 
     _handleBack(){

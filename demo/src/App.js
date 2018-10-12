@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Filter from '../../src/index'
 import {Form} from "antd/lib/index";
+import moment from "moment";
 
 const treeData = [{
     title: 'Node1',
@@ -96,8 +97,26 @@ class App extends Component {
         this._handleBack=this._handleBack.bind(this);
         this._handleCascaderChange=this._handleCascaderChange.bind(this);
     }
-    _handleSearch(params){
-        console.log(params)
+    _handleSearch(items){
+        console.log(items);
+        let params = {}
+        for (let i in items) {
+            if ((items[i] && items[i] !== 'undefined') || items[i] === 0) {
+                //将起始时间区分开
+                if (i.indexOf('startEndTime')>-1) {
+                    let index = i.split('-')[1]||0;
+                    let dateFormat = 'YYYY-MM-DD HH:mm:ss';
+                    let startTime = moment(items[i][0]).format(dateFormat);
+                    let endTime = moment(items[i][1]).format(dateFormat);
+                    let startTimeStr =index==0?'startTime': 'startTime'+index;
+                    let endTimeStr = index==0?'endTime':'endTime'+index;
+                    params[startTimeStr] = startTime;
+                    params[endTimeStr] = endTime;
+                } else {
+                    params[i] = items[i];
+                }
+            }
+        };
     }
     _handleReset(){
 

@@ -162,33 +162,15 @@ var Filter = function (_Component) {
             var _this2 = this;
 
             e.preventDefault();
-            this.props.form.validateFields(function (err, items) {
-                var params = {};
-                for (var i in items) {
-                    if (items[i] && items[i] !== 'undefined' || items[i] === 0) {
-                        //将起始时间区分开
-                        if (i.indexOf('startEndTime') > -1) {
-                            var index = i.split('-')[1] || 0;
-                            var dateFormat = 'YYYY-MM-DD HH:mm:ss';
-                            var startTime = (0, _moment2.default)(items[i][0]).format(dateFormat);
-                            var endTime = (0, _moment2.default)(items[i][1]).format(dateFormat);
-                            var startTimeStr = index == 0 ? 'startTime' : 'startTime' + index;
-                            var endTimeStr = index == 0 ? 'endTime' : 'endTime' + index;
-                            params[startTimeStr] = startTime;
-                            params[endTimeStr] = endTime;
-                        } else {
-                            params[i] = items[i];
-                        }
-                    }
-                };
-                _this2.props.handleSearch(params);
+            this.props.form.validateFields(function (err, values) {
+                _this2.props.handleSearch(values);
             });
         }
     }, {
         key: '_handleReset',
         value: function _handleReset() {
             this.props.form.resetFields();
-            this.props.handleSearch({});
+            this.props._handleReset();
         }
     }, {
         key: '_handleBack',
