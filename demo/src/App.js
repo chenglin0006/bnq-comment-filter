@@ -27,6 +27,12 @@ var filterData = [{
     name: '活动编码',
     inputChangeName:'titleChangeFun'
 },{
+    id: 'activityType',
+    name: '活动类型',
+    type: 'select',
+    data:[{id:'1',name:'类型1'},{id:'2',name:'类型2'}],
+    isHidePleaseSelect:false
+},{
     id: 'searchParam',
     name: '查询条件',
 },{

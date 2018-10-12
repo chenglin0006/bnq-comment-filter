@@ -83,3 +83,13 @@ const WrappedAdvancedFilter = Form.create()(Filter);
 ##test
 npm run test
 
+##demo
+cd demo
+npm start
+
+##build
+npm run bulid
+
+##publish
+npm publish
+
