@@ -111,6 +111,10 @@ var _cascader2 = _interopRequireDefault(_cascader);
 
 __webpack_require__(5);
 
+var _moment = __webpack_require__(10);
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -158,15 +162,30 @@ var Filter = function (_Component) {
             var _this2 = this;
 
             e.preventDefault();
-            this.props.form.validateFields(function (err, values) {
-                _this2.props.handleSearch(values);
+            this.props.form.validateFields(function (err, items) {
+                var params = {};
+                for (var i in items) {
+                    if (items[i] && items[i] !== 'undefined' || items[i] === 0) {
+                        //将起始时间区分开
+                        if (i === 'startEndTime') {
+                            var dateFormat = 'YYYY-MM-DD HH:mm:ss';
+                            var startTime = (0, _moment2.default)(items[i][0]).format(dateFormat);
+                            var endTime = (0, _moment2.default)(items[i][1]).format(dateFormat);
+                            params['startTime'] = startTime;
+                            params['endTime'] = endTime;
+                        } else {
+                            params[i] = items[i];
+                        }
+                    }
+                };
+                _this2.props.handleSearch(params);
             });
         }
     }, {
         key: '_handleReset',
         value: function _handleReset() {
-            // this.props.form.resetFields();
-            this.props.handleReset();
+            this.props.form.resetFields();
+            this.props.handleSearch({});
         }
     }, {
         key: '_handleBack',
@@ -197,7 +216,7 @@ var Filter = function (_Component) {
                         })
                     );
                     break;
-                case 'datepicker':
+                case 'rangePicker':
                     var dateFormat = 'YYYY-MM-DD';
                     if (option.showTime) {
                         dateFormat = 'YYYY-MM-DD HH:mm:ss';
@@ -1048,6 +1067,12 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ })
 /******/ ]);

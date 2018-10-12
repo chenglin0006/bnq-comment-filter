@@ -24,7 +24,12 @@ const WrappedAdvancedFilter = Form.create()(Filter);
                 {
                     id: 'searchParam',
                     name: '查询条件',
-                },
+                },{
+                     id: 'startEndTime',
+                     name: '起止时间',
+                     type:'rangePicker',
+                     showTime:true
+                 }
                 {
                     id: 'selectId',
                      name: 'test',

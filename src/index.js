@@ -4,6 +4,7 @@ import {Form, Row, Col, Input, Button, Icon, Select, DatePicker,Divider,TreeSele
 // import CascaderShop from '../cascaderShop/index';
 import Cascader from './components/cascader'
 import './index.less';
+import moment from 'moment';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -30,14 +31,29 @@ export default class Filter extends Component {
 
     _handleSearch(e) {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            this.props.handleSearch(values);
+        this.props.form.validateFields((err, items) => {
+            let params = {}
+            for (let i in items) {
+                if ((items[i] && items[i] !== 'undefined') || items[i] === 0) {
+                    //将起始时间区分开
+                    if (i === 'startEndTime') {
+                        let dateFormat = 'YYYY-MM-DD HH:mm:ss';
+                        let startTime = moment(items[i][0]).format(dateFormat);
+                        let endTime = moment(items[i][1]).format(dateFormat);
+                        params['startTime'] = startTime;
+                        params['endTime'] = endTime;
+                    } else {
+                        params[i] = items[i];
+                    }
+                }
+            };
+            this.props.handleSearch(params);
         });
     }
 
     _handleReset() {
-        // this.props.form.resetFields();
-        this.props.handleReset();
+        this.props.form.resetFields();
+        this.props.handleSearch({});
     }
 
     _handleBack(){
@@ -54,7 +70,7 @@ export default class Filter extends Component {
                     </Select>
                 );
                 break;
-            case 'datepicker':
+            case 'rangePicker':
                 let dateFormat = 'YYYY-MM-DD';
                 if(option.showTime){
                     dateFormat = 'YYYY-MM-DD HH:mm:ss';

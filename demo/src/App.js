@@ -30,6 +30,11 @@ var filterData = [{
     id: 'searchParam',
     name: '查询条件',
 },{
+    id: 'startEndTime',
+    name: '起止时间',
+    type:'rangePicker',
+    showTime:true
+},{
     id:'treeSelect',
     type:'treeSelect',
     treeData:treeData,
@@ -80,8 +85,8 @@ class App extends Component {
         this._handleBack=this._handleBack.bind(this);
         this._handleCascaderChange=this._handleCascaderChange.bind(this);
     }
-    _handleSearch(){
-
+    _handleSearch(params){
+        console.log(params)
     }
     _handleReset(){
 
