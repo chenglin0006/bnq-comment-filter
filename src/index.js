@@ -41,7 +41,7 @@ export default class Filter extends Component {
 
     _handleReset() {
         this.props.form.resetFields();
-        this.props._handleReset();
+        this.props.handleReset();
     }
 
     _handleBack(){

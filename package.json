@@ -1,6 +1,6 @@
 {
   "name": "bnq-common-filter",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "common filter for bnq",
   "main": "dist/bundle.js",
   "files": [

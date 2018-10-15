@@ -181,7 +181,7 @@ var Filter = function (_Component) {
         key: '_handleReset',
         value: function _handleReset() {
             this.props.form.resetFields();
-            this.props._handleReset();
+            this.props.handleReset();
         }
     }, {
         key: '_handleBack',
