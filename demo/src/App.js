@@ -26,13 +26,15 @@ const treeData = [{
 var filterData = [{
     id: 'activityCode',
     name: '活动编码',
-    inputChangeName:'titleChangeFun'
+    inputChangeName:'titleChangeFun',
+    initialValue:'2333',
 },{
     id: 'activityType',
     name: '活动类型',
     type: 'select',
     data:[{id:'1',name:'类型1'},{id:'2',name:'类型2'}],
-    isHidePleaseSelect:false
+    isHidePleaseSelect:false,
+    initialValue:'2',
 },{
     id: 'searchParam',
     name: '查询条件',
@@ -121,6 +123,11 @@ class App extends Component {
         };
     }
     _handleReset(){
+        //重置只会将表单数据置为initialValue的状态，如需全部清空，则需要如下处理
+        filterData.forEach((ele)=>{
+            delete ele.initialValue;
+        })
+        this.setState({});
 
     }
     _handleBack(){
