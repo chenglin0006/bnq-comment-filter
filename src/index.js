@@ -90,11 +90,6 @@ export default class Filter extends Component {
         const {getFieldDecorator} = this.props.form;
         const that = this;
         return filterData.map((option, i) => {
-            // if (option.type === 'cascaderShop') {
-            //     return (
-            //         <CascaderShop key={i} form={that.props.form} isNotRequired={true}/>
-            //     )
-            // } else
             if (option.type === 'cascader') {
                 return (
                     <Cascader

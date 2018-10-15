@@ -257,11 +257,6 @@ var Filter = function (_Component) {
 
             var that = this;
             return filterData.map(function (option, i) {
-                // if (option.type === 'cascaderShop') {
-                //     return (
-                //         <CascaderShop key={i} form={that.props.form} isNotRequired={true}/>
-                //     )
-                // } else
                 if (option.type === 'cascader') {
                     return _react2.default.createElement(_cascader2.default, {
                         key: i,
