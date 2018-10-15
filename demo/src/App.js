@@ -40,12 +40,14 @@ var filterData = [{
     id: 'startEndTime-1',
     name: '创建时间',
     type:'rangePicker',
-    showTime:true
+    showTime:true,
+    placeholder:['创建开始时间','创建结束时间']
 },{
     id: 'startEndTime-2',
     name: '活动时间',
     type:'rangePicker',
-    showTime:true
+    showTime:true,
+    placeholder:['活动开始时间','活动结束时间']
 },{
     id:'treeSelect',
     type:'treeSelect',

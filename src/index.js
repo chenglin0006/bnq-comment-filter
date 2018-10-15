@@ -5,6 +5,9 @@ import {Form, Row, Col, Input, Button, Icon, Select, DatePicker,Divider,TreeSele
 import Cascader from './components/cascader'
 import './index.less';
 import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+import locale from 'antd/lib/date-picker/locale/zh_CN';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -60,7 +63,7 @@ export default class Filter extends Component {
                 if(option.showTime){
                     dateFormat = 'YYYY-MM-DD HH:mm:ss';
                 }
-                return <RangePicker allowClear={false} showTime={option.showTime?true:false} format={dateFormat}/>;
+                return <RangePicker placeholder={option.placeholder||['开始时间', '结束时间']} locale={locale} allowClear={false} showTime={option.showTime?true:false} format={dateFormat} allowClear/>;
                 break;
             case 'treeSelect':
                 const {showSearch=false,allowClear=true,treeData,placeholder,multiple=false}=option

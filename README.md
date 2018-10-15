@@ -28,7 +28,8 @@ const WrappedAdvancedFilter = Form.create()(Filter);
                      id: 'startEndTime',
                      name: '起止时间',
                      type:'rangePicker',
-                     showTime:true
+                     showTime:true,
+                     placeholder:['创建开始时间','创建结束时间']
                  }
                 {
                     id: 'selectId',

@@ -115,7 +115,15 @@ var _moment = __webpack_require__(10);
 
 var _moment2 = _interopRequireDefault(_moment);
 
+__webpack_require__(11);
+
+var _zh_CN = __webpack_require__(12);
+
+var _zh_CN2 = _interopRequireDefault(_zh_CN);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -123,6 +131,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 // import CascaderShop from '../cascaderShop/index';
+
+
+_moment2.default.locale('zh-cn');
 
 
 var FormItem = _antd.Form.Item;
@@ -206,7 +217,7 @@ var Filter = function (_Component) {
                     if (option.showTime) {
                         dateFormat = 'YYYY-MM-DD HH:mm:ss';
                     }
-                    return _react2.default.createElement(RangePicker, { allowClear: false, showTime: option.showTime ? true : false, format: dateFormat });
+                    return _react2.default.createElement(RangePicker, _defineProperty({ placeholder: option.placeholder || ['开始时间', '结束时间'], locale: _zh_CN2.default, allowClear: false, showTime: option.showTime ? true : false, format: dateFormat }, 'allowClear', true));
                     break;
                 case 'treeSelect':
                     var _option$showSearch = option.showSearch,
@@ -1058,6 +1069,18 @@ module.exports = function (css) {
 /***/ (function(module, exports) {
 
 module.exports = require("moment");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("moment/locale/zh-cn");
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("antd/lib/date-picker/locale/zh_CN");
 
 /***/ })
 /******/ ]);
