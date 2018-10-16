@@ -13,7 +13,8 @@ const props = {
     filterData:[{
         id: 'activityCode',
         name: '活动编码',
-        inputChangeName:'titleChangeFun'
+        inputChangeName:'titleChangeFun',
+        // initialValue:'2333',
     },{
         id: 'searchParam',
         name: '查询条件',
@@ -39,15 +40,16 @@ describe('filter', () => {
 
         const wrapper = mount(<WrappedAdvancedFilter {...props}/>);
 
-        console.log(wrapper.debug());
+        // console.log(wrapper.debug());
 
         //test props
         expect(wrapper.prop('filterData')).toHaveLength(2);
+        expect(wrapper.find('#activityCode input').at(0).props().value).toBe("");
 
         //test reset btn
         wrapper.find('button.reset').simulate('click');
         expect(props.handleReset).toBeCalled();
-        expect(wrapper.find('#activityCode').at(0).text()).toBe("");
+        expect(wrapper.find('#activityCode').at(0).props().value).toBe(undefined);
 
         //test search btn
         wrapper.find('button.search').simulate('submit');
