@@ -118,7 +118,7 @@ export default class Filter extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'bnq-common-filter-container'}>
                 <Form
                     layout="inline"
                     className="filter-form"
