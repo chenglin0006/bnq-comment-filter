@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`filter simulates click events 1`] = `
-<div>
+<div
+  className="bnq-common-filter-container"
+>
   <form
     className="ant-form ant-form-inline filter-form"
     onSubmit={[Function]}

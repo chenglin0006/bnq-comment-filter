@@ -1,6 +1,6 @@
 {
   "name": "bnq-common-filter",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "common filter for bnq",
   "main": "dist/bundle.js",
   "files": [
@@ -38,8 +38,8 @@
     "jest": "^23.6.0",
     "moment": "^2.22.2",
     "prop-types": "^15.6.0",
-    "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

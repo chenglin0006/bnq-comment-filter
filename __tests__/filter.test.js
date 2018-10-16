@@ -37,7 +37,7 @@ describe('filter', () => {
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
 
-        const wrapper = mount( <WrappedAdvancedFilter {...props}/>);
+        const wrapper = mount(<WrappedAdvancedFilter {...props}/>);
 
         console.log(wrapper.debug());
 
